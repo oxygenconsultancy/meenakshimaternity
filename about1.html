@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Menakshi</title>
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+      <link rel="stylesheet" href="css/components.css">
+      <link rel="stylesheet" href="css/responsee.css">
+      <link rel="stylesheet" href="css/icons.css">
+      <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+      <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all"> <!-- animation -->
+<link rel="stylesheet" href="css/swipebox.css">     
+<!-- Accordion styles -->
+	<link rel="stylesheet" href="css/smk-accordion.css" />
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+	<style type="text/css">
+		/*Demo styles*/
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: 'Helvetica', Arial, sans-serif;
+			font-size: 12px;
+		}
+		.container_demo{
+			max-width: 900px;
+			margin: 30px auto 100px;
+		}
+		h2{
+			margin: 25px 0 20px;
+			text-align: center;
+			color: #555;
+		}
+	</style>
+
+
+
+      <!-- CUSTOM STYLE -->
+      <link rel="stylesheet" href="css/template-style.css">
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+      <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>    
+      <script type="text/javascript" src="js/template-scripts.js"></script> 
+<style type="text/css">
+// Variables
+$baseMenuBackground: #111;          // Base color theme
+$secondaryMenuBackground: #0186ba;  // Secondary color (highlights, triangles...)
+$gutter: 10px;                      // Base gutter
+
+// Latest CSS box model 
+*, *:after, *:before {
+  box-sizing: border-box; 
+}
+
+// The classic hamburger icon
+// <button class="animenu__toggle">
+//   <span class="animenu__toggle__bar"></span>
+//   <span class="animenu__toggle__bar"></span>
+//   <span class="animenu__toggle__bar"></span>
+// </button>
+.animenu__toggle {
+  display: none;
+  cursor: pointer;
+  background-color: $baseMenuBackground;
+  border: 0; 
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+
+  &:hover {
+    background-color: $secondaryMenuBackground;
+  }
+}
+
+.animenu__toggle__bar {
+  display: block;
+  width: 20px; height: 2px;
+  background-color: #fff;    
+  transition: .15s cubic-bezier(0.75, -0.55, 0.25, 1.55);
+
+  &+.animenu__toggle__bar {
+    margin-top: 4px;
+  }  
+}
+
+.animenu__toggle--active {
+  .animenu__toggle__bar {
+    margin: 0;
+    position: absolute;
+
+    &:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+    }        
+  }
+}
+
+// Clear some defaults
+.animenu {
+  display: block;
+  ul {
+    padding: 0;
+    list-style: none;    
+    font: 0px 'Open Sans', Arial, Helvetica;    
+  }
+
+  li, a {
+    display: inline-block;
+    font-size: 15px;
+  }
+
+  a {
+    color: lighten($baseMenuBackground, 60%);
+    text-decoration: none;
+  }
+}
+
+// First level -> main menu items
+// <nav class="animenu">
+//    <ul class="animenu__nav">
+//    ...
+//    </ul>
+//  </nav>
+.animenu__nav {
+  background-color: $baseMenuBackground;        
+
+  > li {
+    position: relative;
+    border-right: 1px solid lighten($baseMenuBackground, 20%);
+
+    > a {
+      padding: $gutter 3 * $gutter;
+      text-transform: uppercase;
+
+      // http://bit.ly/SkmL1T & currentColor keyword
+      &:first-child:nth-last-child(2):before { 
+        content:""; 
+        position: absolute;
+        border: 4px solid transparent;
+        border-bottom: 0; 
+        border-top-color: currentColor;
+        top: 50%;
+        margin-top: -2px;
+        right: 10px;  
+      }  
+    }    
+
+    &:hover {
+      > ul {
+        opacity: 1;
+        visibility: visible;
+        margin: 0;        
+      }
+
+      > a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Second level
+// <nav class="animenu">
+//    <ul class="animenu__nav">
+//      <li>
+//        <ul class="animenu__nav__child"></ul>
+//      </li>
+//    </ul>
+//  </nav>
+.animenu__nav__child {
+  min-width: 100%;
+  position: absolute;
+  top: 100%; left: 0;
+  z-index: 1;   
+  opacity: 0;
+  visibility: hidden;
+  margin: 2 * $gutter 0 0 0;
+  background-color: lighten($baseMenuBackground, 15%);    
+  transition: margin .15s, opacity .15s;
+
+  > li {
+    width: 100%;
+    border-bottom: 1px solid lighten($baseMenuBackground, 25%);
+
+    &:first-child > a:after {
+      content: '';
+      position: absolute;
+      height: 0; width: 0;
+      left: 1em;
+      top: -6px;
+      border: 6px solid transparent;
+      border-top: 0;
+      border-bottom-color: inherit;
+    }
+
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  a {
+    padding: $gutter;
+    width: 100%;
+    border-color: lighten($baseMenuBackground, 15%);
+
+    &:hover {
+      background-color: $secondaryMenuBackground;
+      border-color: $secondaryMenuBackground;
+      color: #fff;
+    }
+  }
+}
+
+// The main breakpoint is 767px
+// Adjust the first and second levels display
+@media screen and (max-width: 767px) {
+  .animenu__toggle {
+    display: inline-block;
+  }
+
+  .animenu__nav,
+  .animenu__nav__child {
+    display: none;
+  }
+
+  // First level -> main menu items
+  // <nav class="animenu">
+  //    <ul class="animenu__nav">
+  //    ...
+  //    </ul>
+  //  </nav>    
+  .animenu__nav {
+    margin: $gutter 0;
+
+    > li {
+      width: 100%;
+      border-right: 0;
+      border-bottom: 1px solid lighten($baseMenuBackground, 25%);
+
+      &:last-child {
+        border: 0; 
+      }
+
+      &:first-child > a:after {
+        content: '';
+        position: absolute;
+        height: 0; width: 0;
+        left: 1em;
+        top: -6px;
+        border: 6px solid transparent;
+        border-top: 0;
+        border-bottom-color: inherit;
+      }
+
+      > a {
+        width: 100%;
+        padding: $gutter;
+        border-color: $baseMenuBackground;
+        position: relative; //dropdown caret
+      }
+    }
+
+    a:hover {
+      background-color: $secondaryMenuBackground;
+      border-color: $secondaryMenuBackground;
+      color: #fff;      
+    }
+  }
+
+  // Second level
+  // <nav class="animenu">
+  //    <ul class="animenu__nav">
+  //      <li>
+  //        <ul class="animenu__nav__child"></ul>
+  //      </li>
+  //    </ul>
+  //  </nav>              
+  .animenu__nav__child {
+    position: static;
+    background-color: lighten($baseMenuBackground, 15%);
+    margin: 0;
+    transition: none;
+    visibility: visible;
+    opacity: 1;     
+
+    > li:first-child > a:after {
+      content: none;
+    }
+
+    a {
+      padding-left: 2 * $gutter;
+      width: 100%;
+    }           
+  }
+}
+
+// Expanding the animenu
+// <nav class="animenu">
+//    <ul class="animenu__nav animenu__nav--open">
+//      <li>
+//        <ul class="animenu__nav__child"></ul>
+//      </li>
+//    </ul>
+//  </nav>
+.animenu__nav--open {
+  display: block !important;
+
+  & .animenu__nav__child {
+    display: block;
+  }
+}
+
+</style>
+<script type="text/javascript" src="js/smk-accordion.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+
+			$(".accordion_example1").smk_Accordion();
+
+			$(".accordion_example2").smk_Accordion({
+				closeAble: true, //boolean
+			});
+
+			$(".accordion_example3").smk_Accordion({
+				showIcon: false, //boolean
+			});
+
+			$(".accordion_example4").smk_Accordion({
+				closeAble: true, //boolean
+				closeOther: false, //boolean
+			});
+
+			$(".accordion_example5").smk_Accordion({closeAble: true});
+
+			$(".accordion_example6").smk_Accordion();
+			
+			$(".accordion_example7").smk_Accordion({
+				activeIndex: 2 //second section open
+			});
+			$(".accordion_example8, .accordion_example9").smk_Accordion();
+
+
+			// Demo text. Let's save some space to make the code readable. ;)
+			//$('.acc_content').not('.nodemohtml').html('<p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce aliquet neque et accumsan fermentum. Aliquam lobortis neque in nulla  tempus, molestie fermentum purus euismod.</p>');
+			
+		});
+	</script>
+   </head>
+   <body class="size-1140">
+      <!-- TOP NAV WITH LOGO -->
+      <header>
+         <div id="topbar">
+            <div class="line">
+               <div class="s-12 m-6 l-6">
+                  <p>CONTACT US: <strong>0435 2411243</strong> | <strong>meenakshimaternity@gmail.com</strong></p>
+               </div>
+               <div class="s-12 m-6 l-6">
+                  <div class="social right">
+                     <a><i class="icon-facebook_circle"></i></a> <a><i class="icon-twitter_circle"></i></a> <a><i class="icon-google_plus_circle"></i></a> <a><i class="icon-instagram_circle"></i></a>
+                  </div>
+               </div>
+            </div>  
+         </div> 
+         <nav>
+            <div class="line">
+               
+                  <p class="logo"><img src="img/logo.png"></p>
+               </div>
+               <div class="top-nav s-12 l-10" style="float:right " >
+                  <nav class="animenu"> 
+  
+  <ul class="animenu__nav">
+    <li><a href="#">Home</a></li>
+	<li><a href="#">About</a></li>
+	<li><a href="#">Plan Table</a>
+		<ul class="animenu__nav__child">
+        <li><a href="">Getting Pregnant</a></li>
+        <li><a href="">First Scan</a></li>
+        <li><a href="">9 Month Journey</a></li>
+		<li><a href="">Baby Born</a></li>
+        <li><a href="">Baby Care</a></li>
+       </ul>
+	</li>
+    <li><a href="#">Specialities</a>
+      <ul class="animenu__nav__child">
+        <li><a href="">Pregnancy Care</a></li>
+        <li><a href="">Gynaecology</a></li>
+        <li><a href="">General Surgery</a></li>
+		<li><a href="">Breast Health</a></li>
+		<li><a href="">Neonatal ICU/Care</a></li>
+		<li><a href="">Fetal Care</a></li>
+		<li><a href="">Internal Medicine</a></li>
+		<li><a href="">Fertility Services</a></li>
+		<li><a href="">24/7 Pharmacy</a></li>
+		<li><a href="">Laboratory</a></li>
+      </ul>
+    </li>     
+    
+    <li><a href="#">Gallery</a></li>
+	<li><a href="#">News</a></li> 
+    <li><a href="#">Contact</a></li>                 
+  </ul>
+</nav>
+               </div>
+            </div>
+         </nav>
+      </header>  
+      <section>
+         <!-- CAROUSEL --> 
+         <div id="carousel">
+            <div id="owl-demo" class="owl-carousel owl-theme"> 
+               <div class="item">
+                  <img src="img/Banner2.jpg" alt="">
+                  <div class="line"> 
+                     <div class="text hide-s">
+                        <div class="line"> 
+                          <div class="prev-arrow hide-s hide-m">
+                             <i class="icon-chevron_left"></i>
+                          </div>
+                          <div class="next-arrow hide-s hide-m">
+                             <i class="icon-chevron_right"></i>
+                          </div>
+                        </div> 
+                        <h2>Meenakshi Maternity & Women Care Centre</h2>
+                        <p>Pregnancy is one of the most magical experiences nature can offer.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="item">
+                  <img src="img/Banner1.jpg" alt="">
+                  <div class="line">
+                     <div class="text hide-s"> 
+                        <div class="line"> 
+                          <div class="prev-arrow hide-s hide-m">
+                             <i class="icon-chevron_left"></i>
+                          </div>
+                          <div class="next-arrow hide-s hide-m">
+                             <i class="icon-chevron_right"></i>
+                          </div>
+                        </div> 
+                        <h2>Meenakshi Maternity & Women Care Centre</h2>
+                        <p>We believe that a child is life’s greatest gift</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="item">
+                  <img src="img/Banner3.jpg" alt="">
+                  <div class="line">
+                     <div class="text hide-s">
+                        <div class="line"> 
+                          <div class="prev-arrow hide-s hide-m">
+                             <i class="icon-chevron_left"></i>
+                          </div>
+                          <div class="next-arrow hide-s hide-m">
+                             <i class="icon-chevron_right"></i>
+                          </div>
+                        </div> 
+                        <h2>Meenakshi Maternity & Women Care Centre</h2>
+                        <p>To ensure a healthy and happy pregnancy</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- FIRST BLOCK -->
+        
+         <!-- FEATURES -->
+         <div id="features">
+            <div class="line">
+               <div class="margin">
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="icon-tablet icon3x"></i>
+                     <h2>24/7 Maternity Care</h2>
+                     <p>Our consultant obstetricians are the leading practitioners in their field. Mothers-to-be who choose us for their maternity care can be certain that they will receive the highest quality specialist anytime.</p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="icon-isight icon3x"></i>
+                     <h2>Pediatrics Care</h2>
+                     <p>Our paediatric care is one of the best in the city, delivered by a team of experts across dermatology, neurology, cardiology and developmental paediatrics. We “get” kids! Children love coming to us with its dedicated play areas, friendly doctors and attractive consultant rooms.</p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="icon-star icon3x"></i>
+                     <h2>World Class Equipments</h2>
+                     <p>We are thoroughly prepared to take on even the most complicated cases. In order to deliver truly reliable intensive care, we leverage the most advanced equipment and proven approaches to critical case management.</p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="icon-heart icon3x"></i>
+                     <h2>Experienced Professions</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat nonummy.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+
+
+
+
+
+
+
+
+
+
+<div id="about-us">
+
+             <div class="s-12 m-12 l-3 media-container">
+               <img src="img/about.jpg" alt="">
+            </div>
+            <article class="s-12 m-12 l-9">
+               <h2>We Care<br> Maternity & Women Wellness<br></h2>
+<div class="container_demo">
+		
+		
+
+		
+		<!-- Accordion begin -->
+		<div class="accordion_example2">
+		
+			<!-- Section 1 -->
+			<div class="accordion_in">
+				<div class="acc_head">Section 1</div>
+				<div class="acc_content">asdfasdfasdfasd fasdfasdfsdaf
+					<!-- Your text here. For this demo, the content is generated automatically. -->
+				</div>
+			</div>
+
+			<!-- Section 2 -->
+			<div class="accordion_in">
+				<div class="acc_head">Section 2</div>
+				<div class="acc_content">asdfasdfasdf
+					<!-- Your text here. For this demo, the content is generated automatically. -->
+				</div>
+			</div>
+
+			<!-- Section 3 -->
+			<div class="accordion_in">
+				<div class="acc_head">Section 3</div>
+				<div class="acc_content">asdfasdfasdf
+					<!-- Your text here. For this demo, the content is generated automatically. -->
+				</div>
+			</div>
+
+		</div>
+		<!-- Accordion end -->
+               <p>
+Meenakshi Maternity & Women Care Centre is a comprehensive Women & Maternity care hospital, committed to providing a gamut of services to women, and maternity. 
+Our multidisciplinary team provides comprehensive & personalized care that includes obstetrics, gynecology, radiology and specialty out patient clinics. 
+We also offer other services like  counseling, individual physical fitness sessions to facilitate natural birthing, painless delivery to ease the birthing process and an expert dietitian to advice on an healthy diet.
+               </p>
+              <div class="s-12 m-4 l-2 left"><a class="white-btn" href="#contact">Read More</a></div>
+            </article>
+         </div>
+         <!-- OUR WORK -->
+
+
+
+
+
+
+         <!-- SERVICES -->
+         <div id="services">
+            <div class="line">
+               <h2 class="section-title">What we do</h2>
+               <div class="margin">
+                  <div class="s-12 m-6 l-4 margin-bottom">
+                     <i class="icon-vector"></i>
+                     <div class="service-text">
+                        <h3>We create</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                     </div>
+                  </div>
+                  <div class="s-12 m-6 l-4 margin-bottom">
+                     <i class="icon-eye"></i>
+                     <div class="service-text">
+                        <h3>We look to the future</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                     </div>
+                  </div>
+                  <div class="s-12 m-12 l-4 margin-bottom">
+                     <i class="icon-random"></i>
+                     <div class="service-text">
+                        <h3>We find a solution</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+     
+      </section>
+      <!-- FOOTER -->
+      <footer>
+         <div class="line">
+            <div class="s-12 l-6">
+               <p>Copyright 2017, Meenakshi Maternity & Women Care</p>
+               <p></p>
+            </div>
+            <div class="s-12 l-6">
+               <a href="www.consultoxygen.com" target="_blank">Designed by Oxygen</a><br> 
+            </div>
+         </div>
+      </footer>
+      <script type="text/javascript" src="js/responsee.js"></script>
+      <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+      <script type="text/javascript">
+         jQuery(document).ready(function($) {
+            var theme_slider = $("#owl-demo");
+            $("#owl-demo").owlCarousel({
+                navigation: false,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                autoPlay: 6000,
+                addClassActive: true,
+             // transitionStyle: "fade",
+                singleItem: true
+            });
+            $("#owl-demo2").owlCarousel({
+                slideSpeed: 300,
+                autoPlay: true,
+                navigation: true,
+                navigationText: ["&#xf007","&#xf006"],
+                pagination: false,
+                singleItem: true
+            });
+        
+            // Custom Navigation Events
+            $(".next-arrow").click(function() {
+                theme_slider.trigger('owl.next');
+            })
+            $(".prev-arrow").click(function() {
+                theme_slider.trigger('owl.prev');
+            })     
+        }); 
+      </script>
+   </body>
+</html>
